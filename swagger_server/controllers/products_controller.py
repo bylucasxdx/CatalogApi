@@ -17,7 +17,10 @@ def add_product(produto=None):  # noqa: E501
     """
     if connexion.request.is_json:
         produto = ProductItem.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+    return ({
+        "tipo": "sucesso",
+        "message": "Produto adicionado com sucesso!"
+    }, 201)
 
 
 def search_products(nameProduct=None, limit=None):  # noqa: E501
@@ -32,7 +35,7 @@ def search_products(nameProduct=None, limit=None):  # noqa: E501
 
     :rtype: List[ProductItem]
     """
-    return {
-      "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
-      "name": "Camisa G - Projeto"
-    }
+    return ({
+        "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+        "name": "Camisa G - Projeto"
+    }, 200)
